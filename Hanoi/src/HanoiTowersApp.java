@@ -1,3 +1,4 @@
+package Hanoi.src;
 
 import java.util.Scanner;
 

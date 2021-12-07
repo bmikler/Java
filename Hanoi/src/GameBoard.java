@@ -1,7 +1,8 @@
+package Hanoi.src;
 
 public class GameBoard {
 
-    public static final int TOWER_NUMBER = 3;
+    private static final int TOWER_NUMBER = 3;
 
     private Tower[] towers = new Tower[TOWER_NUMBER];
 
