@@ -1,4 +1,4 @@
-package Hanoi.src;
+package Lab2.HanoiTower;
 
 import java.util.Scanner;
 
@@ -35,6 +35,7 @@ public class HanoiTowersApp {
         } else {
             solvePuzzle(diskNumbers - 1,sourceTower, targetTower, bufferTower);
             GAMEBOARD.moveDisc(sourceTower, targetTower);
+            GAMEBOARD.printView();
             solvePuzzle(diskNumbers - 1, bufferTower, sourceTower, targetTower);
         }
 

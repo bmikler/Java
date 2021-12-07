@@ -1,4 +1,4 @@
-package Hanoi.src;
+package Lab2.HanoiTower;
 
 import java.util.NoSuchElementException;
 
