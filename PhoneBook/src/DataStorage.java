@@ -40,7 +40,7 @@ public class DataStorage {
         return loadedData;
     }
 
-    public boolean save(TreeMap<String, Contact> phonebook) {
+    public boolean save(Map<String, Contact> phonebook) {
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME));

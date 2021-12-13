@@ -1,13 +1,15 @@
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class TeleBook {
 
-    private TreeMap<String, Contact> phoneBook = new TreeMap<>();
+    private Map<String, Contact> phoneBook = new TreeMap<>();
 
-    public TreeMap<String, Contact> getPhoneBook() {
+    public Map<String, Contact> getPhoneBook() {
 
-        return phoneBook;
+        return Collections.unmodifiableMap(phoneBook);
     }
 
     public boolean addContact(String name, String phoneNumber) {
