@@ -1,4 +1,5 @@
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -7,6 +8,16 @@ public class TeleBookController {
 
     private Scanner scanner = new Scanner(System.in);
     private TeleBook teleBook = new TeleBook();
+
+    public TeleBookController(){
+        DataStorage storage = new DataStorage();
+        HashMap<String, String> contacts = storage.loadData();
+
+        for (String name : contacts.keySet()) {
+            teleBook.addContact(name, contacts.get(name));
+        }
+
+    }
 
     public void loop() {
 
@@ -31,6 +42,8 @@ public class TeleBookController {
                         remove();
                     }
                     case EXIT -> {
+                        DataStorage storage = new DataStorage();
+                        storage.save(teleBook.getPhoneBook());
                         break;
                     }
                 }

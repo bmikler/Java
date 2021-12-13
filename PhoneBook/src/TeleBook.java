@@ -5,6 +5,11 @@ public class TeleBook {
 
     private TreeMap<String, Contact> phoneBook = new TreeMap<>();
 
+    public TreeMap<String, Contact> getPhoneBook() {
+
+        return phoneBook;
+    }
+
     public boolean addContact(String name, String phoneNumber) {
 
         if (name.length() != 0 && phoneNumber.length() != 0) {
