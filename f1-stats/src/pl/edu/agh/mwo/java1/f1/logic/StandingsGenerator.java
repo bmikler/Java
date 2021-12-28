@@ -85,13 +85,13 @@ public class StandingsGenerator {
 
         row.createCell(0).setCellValue(driver);
 
-        int j = 1;
+        int columnNumber = 1;
 
         for (Race race : races) {
 
             int previousScore = 0;
 
-            Cell previousCell = row.getCell(j -1);
+            Cell previousCell = row.getCell(columnNumber -1);
 
             if (previousCell.getCellType().equals(CellType.NUMERIC))
             {
@@ -99,9 +99,9 @@ public class StandingsGenerator {
             }
 
             int score = race.getScoreForDriver(driver);
-            row.createCell(j).setCellValue(score + previousScore);
+            row.createCell(columnNumber).setCellValue(score + previousScore);
 
-            j++;
+            columnNumber++;
 
         }
 
