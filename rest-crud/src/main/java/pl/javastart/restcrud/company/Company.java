@@ -20,6 +20,9 @@ public class Company {
     @OneToMany(mappedBy = "id")
     private List<JobOffer> jobOffers;
 
+    public Company() {
+    }
+
     public Company(Long id, String name, String description, String city, Integer employees, String telephone, String email) {
         this.id = id;
         this.name = name;

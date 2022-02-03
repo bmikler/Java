@@ -1,11 +1,10 @@
 package pl.javastart.restcrud.joboffer;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -28,6 +27,20 @@ class JobOfferController {
         return service.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    ResponseEntity<JobOfferDto> save(@RequestBody JobOfferDto jobOfferDto){
+
+        JobOfferDto offer = service.save(jobOfferDto);
+
+        URI savedEntityLocation = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("{id}")
+                .buildAndExpand(offer.getId())
+                .toUri();
+
+        return ResponseEntity.created(savedEntityLocation).body(offer);
+
     }
 
 }

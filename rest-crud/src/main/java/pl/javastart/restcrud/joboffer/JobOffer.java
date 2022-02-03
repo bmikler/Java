@@ -24,6 +24,21 @@ public class JobOffer {
     @JoinColumn(name = "companyId")
     private Company company;
 
+    public JobOffer() {
+    }
+
+    public JobOffer(Long id, String title, String description, String requirements, String duties, String location, Double minSalary, Double maxSalary, Company company) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.requirements = requirements;
+        this.duties = duties;
+        this.location = location;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+        this.company = company;
+    }
+
     public Long getId() {
         return id;
     }

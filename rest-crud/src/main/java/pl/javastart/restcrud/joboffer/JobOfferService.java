@@ -28,4 +28,11 @@ class JobOfferService {
         return repository.findById(id).map(dtoMapper::map);
     }
 
+    JobOfferDto save(JobOfferDto jobOfferDto){
+        JobOffer offer= dtoMapper.map(jobOfferDto);
+        JobOffer offerSaved = repository.save(offer);
+
+        return dtoMapper.map(offerSaved);
+    }
+
 }
