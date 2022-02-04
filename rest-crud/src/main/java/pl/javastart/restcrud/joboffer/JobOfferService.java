@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-class JobOfferService {
+public class JobOfferService {
 
     private JobOfferRepository repository;
     private JobOfferDtoMapper dtoMapper;
@@ -33,6 +33,12 @@ class JobOfferService {
         JobOffer offerSaved = repository.save(offer);
 
         return dtoMapper.map(offerSaved);
+    }
+
+    public void delete(Long id){
+
+        repository.deleteById(id);
+
     }
 
 }

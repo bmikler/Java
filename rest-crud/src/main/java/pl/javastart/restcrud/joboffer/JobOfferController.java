@@ -43,4 +43,10 @@ class JobOfferController {
 
     }
 
+    @DeleteMapping("/{id}")
+    ResponseEntity<?> deleteOffer(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

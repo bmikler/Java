@@ -45,4 +45,21 @@ class CompanyController {
 
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<CompanyDto> replaceCompany(@PathVariable Long id, @RequestBody CompanyDto companyDto){
+
+        return companyService.replace(id, companyDto)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id){
+
+        companyService.deleteCompany(id);
+        return ResponseEntity.noContent().build();
+
+    }
+
 }
